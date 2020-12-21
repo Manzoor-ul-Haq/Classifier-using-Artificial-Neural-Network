@@ -25,8 +25,23 @@ def actualOutput(Weights, X):
 	Output = (Weights[0] * x0) + (Weights[1] * X[0]) + (Weights[2] * X[1])
 	return activationFunction(Output)
 
-def updateWeights(actual_Output, desiredOutput, X, Weights):
+def updateWeights(actual_Output, desired_Output, X, Weights):
 	Weights[0] = Weights[0] + (l_r * (desiredOutput - actual_Output) * x0)
 	Weights[1] = Weights[1] + (l_r * (desiredOutput - actual_Output) * X[0])
 	Weights[2] = Weights[2] + (l_r * (desiredOutput - actual_Output) * X[1])
 	return Weights
+
+def desiredOutput(trainOutput, X):
+	for i in range(10):
+		if trainInput[i] == X:
+			index = i
+			break
+	return trainOutput[index]
+
+def learning(Weights, trainInput, trainOutput):
+	for X in trainInput:
+		actual_Output = actualOutput(Weights, X)
+		desired_Output = desiredOutput(trainOutput, X)
+		# if desired minus actual output is double equal to zero then its means we have learnt a classifier line
+		# else we have to updateWeights....
+		#InShaAllah will do tomorrow.
