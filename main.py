@@ -10,7 +10,7 @@ class Perceptron():
 
 		self.trainingInput = [[1,1],[9.4,6.4],[2.5,2.1],[8,7.7],[0.5,2.2],[7.9,8.4],[7,7],[2.8,0.8],[1.2,3],[7.8,6.1]]
 		self.trainingOutput = [1, 1 ,1, -1, -1, -1, -1, 1, -1, 1]  #Desired Output
-	def showData(self, trainInput, trainOutput):
+	def showInputData(self, trainInput, trainOutput):
 		for i in range(10):
 			for j in range(2):
 				if i == 0 and j == 0:
@@ -68,7 +68,7 @@ class Perceptron():
 		plt.show()
 
 	def main(self):
-		self.showData(self.trainingInput, self.trainingOutput)
+		self.showInputData(self.trainingInput, self.trainingOutput)
 		Weights, self.epochs = self.learning(self.W, self.trainingInput, self.trainingOutput, self.l_r)
 		print("Epochs: ", self.epochs)
 		self.graph(Weights, self.trainingInput)
